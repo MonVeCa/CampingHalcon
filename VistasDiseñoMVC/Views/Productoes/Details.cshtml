@@ -1,0 +1,77 @@
+﻿@model VistasDiseñoMVC.Models.Producto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2><center>Detalles</center></h2>
+
+<div>
+    <!--<h4>Producto</h4>-->
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titulo)
+        </dd>
+
+        <dt>
+            Descripción:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            Precio:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio)
+        </dd>
+
+        <dt>
+            Cantidad:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            Imagen:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagen)
+        </dd>
+
+        <dt>
+            Categoría:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.titulo)
+        </dd>
+
+    </dl>
+</div>
+
+<div class="row">
+    <center>
+        <button type="button" class="btn btn-default" style=" background-color: white; font-size:150%;">  @Html.ActionLink("EDITAR", "Edit", new { id = Model.IdProducto })</button>
+        <a style="color:white">................................  </a>
+        <button type="button" class="btn btn-default" style=" background-color: white; font-size:150%;"> @Html.ActionLink("REGRESAR", "Index")</button>
+    </center>
+
+</div>
+<!--
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdProducto }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+    -->

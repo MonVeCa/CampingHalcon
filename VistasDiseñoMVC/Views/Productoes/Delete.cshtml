@@ -1,0 +1,86 @@
+﻿@model VistasDiseñoMVC.Models.Producto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2><center>Eliminar Producto</center></h2>
+
+<h3>¿Seguro que quieres eliminar este producto?</h3>
+<div>
+    <!--<h4>Producto</h4>-->
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titulo)
+        </dd>
+
+        <dt>
+            Descripción:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            Precio:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio)
+        </dd>
+
+        <dt>
+            Cantidad:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            Imagen:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagen)
+        </dd>
+
+        <dt>
+            Categoría:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.titulo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <!--
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+        -->
+        <div class="row">
+            <center>
+                <button type="button" class="btn btn-default" style=" background-color: white; font-size:150%;">
+                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                </button>
+                <a style="color:white">................................  </a>
+                <button type="button" class="btn btn-default" style=" background-color: white; font-size:150%;">  @Html.ActionLink("REGRESAR", "Index")</button>
+            </center>
+
+        </div>
+
+
+    }
+</div>

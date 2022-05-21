@@ -1,0 +1,107 @@
+﻿@model VistasDiseñoMVC.Models.Producto
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2><center>Creación de Productos</center></h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <!--<h4>Producto</h4>-->
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label class="control-label col-md-2">Nombre:</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.titulo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.titulo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Descripción:</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Precio:</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.precio, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.precio, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Cantidad:</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.cantidad, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.cantidad, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Imagen:</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.imagen, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.imagen, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Categoría:</label>
+        <div class="col-md-10">
+            @Html.DropDownList("idCategoria", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.idCategoria, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <center>
+            <a style="color:white">................................  </a> <br />
+
+        </center>
+
+    </div>
+
+    <!--
+         <div class="form-group">
+
+             <div class="col-md-offset-2 col-md-10">
+                 <input type="submit" value="Create" class="btn btn-default" />
+             </div>
+         </div>
+
+        -->
+    <div class="row">
+        <center>
+            <input type="submit" value="CREAR  " class="btn btn-default" style="font-size:150%;" />
+            <a style="color:white">................................  </a>
+            <button type="button" class="btn btn-default" style=" background-color: white; font-size:150%;"> @Html.ActionLink("REGRESAR", "Index")</button>
+        </center>
+
+    </div>
+
+
+
+</div>
+    }
+
+    
+
+    <!--
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+        -->
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

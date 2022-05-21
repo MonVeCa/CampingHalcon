@@ -1,0 +1,61 @@
+﻿@model IEnumerable<VistasDiseñoMVC.Models.Producto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2><center>Productos</center></h2>
+
+
+<p>
+    <a><button type="button" class="btn btn-default" style=" background-color: white"> @Html.ActionLink("Agregar", "Create")</button></a>
+   
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.imagen)
+        </th>
+        <th>
+            Nombre
+        </th>
+ 
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precio)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src=@Html.DisplayFor(modelItem => item.imagen) width="100" height="100">
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.precio)
+        </td>
+
+
+
+        <td>
+            <a><button type="button" class="btn btn-default" style=" background-color: white">@Html.ActionLink("Editar", "Edit", new { id = item.IdProducto })</button></a>
+            <a><button type="button" class="btn btn-default" style=" background-color: white">@Html.ActionLink("Detalles", "Details", new { id = item.IdProducto }) </button></a>
+            <a><button type="button" class="btn btn-default" style=" background-color: white"> @Html.ActionLink("Eliminar", "Delete", new { id = item.IdProducto })</button></a>
+
+           
+        </td>
+    </tr>
+}
+
+</table>
