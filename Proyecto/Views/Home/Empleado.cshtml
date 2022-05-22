@@ -1,0 +1,71 @@
+﻿
+@using System.Data
+@model DataTable 
+
+@{
+    ViewBag.Title = "Empleado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ol class="breadcrumb mb-4 mt-4">
+    <li class="breadcrumb-item"><a href="index.html">Administrador</a></li>
+    <li class="breadcrumb-item active">Empleados</li>
+</ol>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i> Listado de Empleados
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <button class="btn btn-success" type="button">
+                    <a href="@Url.Action("RegistrarseAdmin","Login")">Agregar Nuevo Empleado</a>
+                </button>
+            </div>
+        </div>
+
+        <hr />
+        <table id="tabla" class="display responsive" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                    <th>Fecha de Registro</th>
+                    <th></th>
+                </tr>
+                @foreach (DataRow r in Model.Rows)
+                {
+                <tr>
+                    <td>
+                        @Convert.ToString(r["IdUsuario"])
+                    </td>
+                    <td>
+                        @Convert.ToString(r["Nombres"])
+                    </td>
+                    <td>
+                        @Convert.ToString(r["Apellidos"])
+                    </td>
+                    <td>
+                        @Convert.ToString(r["Correo"])
+                    </td>
+                    <td>
+                        @Convert.ToString(r["FechaRegistro"])
+                    </td>
+                </tr>
+                }
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+
+
+}
+
+
+
+
