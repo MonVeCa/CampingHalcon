@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CampingHalconMVC.Models.ProductoModel>
+
+@{
+    ViewBag.Title = "Buscar";
+}
+
+<h2>Resultados</h2>
+
+<div>
+
+    @foreach (var item in Model)
+    {
+        @*<tr>
+                <td>
+                    @item.Nombre
+                </td>
+                <td>
+                    $ @item.Precio
+                </td>
+                <td>
+                    @Html.ActionLink("Agregar al carrito", $"AddProduct/{item.Id}", "Carrito", null, new { @class = "btn btn-default" })
+                </td>
+            </tr>*@
+        <div class="col-md-4">
+            <div style="background-color : rgb(206, 205, 205);  margin-top: 10px; margin-bottom: 10px; margin-left: 10px; margin-right: 10px;">
+                <table style="width: 100%;">
+                    <center><img src="@item.UrlImagen" class="aling-self-start mr-3" style="width:200px"></center>
+                    <center><h3>@item.Nombre</h3></center>
+                    <p>Descripción</p>
+                    <center><p>$@item.Precio</p></center>
+                    <center>@Html.ActionLink("Agregar al carrito", $"AddProduct/{item.Id}", "Carrito", null, new { @class = "btn btn-default" })</center>
+
+                </table>
+            </div>
+        </div>
+    }
+</div>
+<br />

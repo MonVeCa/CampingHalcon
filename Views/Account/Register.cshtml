@@ -1,0 +1,48 @@
+﻿@model CampingHalconMVC.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Registrarse";
+}
+
+<div class="text-center">
+    <h2>Crear Usuario</h2>
+</div>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "col-sm-2 col-form-label col-form-label-lg" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-horizontal" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-sm-2 col-form-label col-form-label-lg" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-horizontal" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-sm-2 col-form-label col-form-label-lg" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-horizontal" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-sm-2 col-form-label col-form-label-lg" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-horizontal" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="mb-3">
+            <input type="submit" class="btn btn-primary" value="Crear" />
+            <a href="@Url.Action("Index","Carrito",null)" class="btn btn-primary">Regresar</a>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

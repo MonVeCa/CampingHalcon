@@ -1,0 +1,33 @@
+﻿@model CampingHalconMVC.Models.CarritoModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Carrito</h2>
+
+<div>
+    <table class="table">
+
+        @foreach (var item in Model.Productos)
+        {
+            <tr>
+                <td>
+                    <center><img src="@item.UrlImagen" class="aling-self-start mr-3" style="width:200px"></center>
+                </td>
+                <td>
+                    @item.Nombre
+                </td>
+                <td>
+                    $ @item.Precio
+                </td>
+                <td>
+                    @Html.ActionLink("Eliminar", $"DelProduct/{item.Id}", "Carrito", null, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <h4>Total: $ @Model.Productos.Sum(p => p.Precio) </h4>
+    <div><center><button class="btn btn-primary; " style=" background-color:darkgray ">  Realizar compra  </button></center></div>
+</div>

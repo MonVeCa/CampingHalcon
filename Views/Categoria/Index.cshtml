@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CampingHalconMVC.Models.CategoriaModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Catalogo Categorías</h2>
+
+<div class="container-fluid">
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-lg-2">
+
+                <img src="@item.UrlImagen" class="img-thumbnail" alt="Imagen Linterna">
+            </div>
+            <div class="col-lg-2">
+                <div class="card">
+                    <div class="card-header">
+                        @item.Nombre
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-t	ext">Contenido</p>
+                        @Html.ActionLink("Ir a " + item.Nombre, "Details", new { id = item.Id }, new { @class="btn btn-primary"})
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
